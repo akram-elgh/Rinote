@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #dff0ff;
+  padding: 20px;
+  height: 100px;
+  text-align: center;
+}
+
+.header > h1 {
+  font-family: "Happy Monkey";
+  font-size: 82px;
+}
+
+.main {
+  padding: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-family: "Happy Monkey";
+}
+
+.collection {
+  background-color: #aaebff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 20px;
+  /* width: 240px; */
+  margin: 16px;
+  float: left;
+  cursor: pointer;
+}
+
+.collection:hover {
+  background-color: #aa9fff;
+}
+
+.collection h2 {
+  font-family: arial;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.collection p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  /* font-size: large; */
+}
+
+.collection input {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.addbtn {
+  float: left;
+  margin: 40px;
+}
+
+.container {
+  font-family: "Happy Monkey";
+}
+
+.topic {
+  width: 50%;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.notes-container {
+  display: flex;
+  margin: 0 auto;
+  width: 70%;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.notes-container > .title {
+  margin: 0;
+  text-align: left;
+  width: 50%;
+  background-color: #bdbcff;
+  padding: 20px;
+}
+
+.notes-container > .description {
+  margin: 0;
+  text-align: left;
+  width: 50%;
+  background-color: #d8f6ff;
+  padding: 20px;
+}
+
+.notes-container > input {
+  border: none;
+}
+
+.note-addbtn {
+  position: absolute;
+  right: 10%;
+}
