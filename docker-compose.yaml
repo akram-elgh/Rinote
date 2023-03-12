@@ -1,0 +1,33 @@
+version: "3"
+services:
+  rinote-app:
+    image: rinote-app
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - rinote-app
+  rinote-api:
+    image: rinote-api
+    ports:
+      - "3001:3001"
+    networks:
+      - rinote-app
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - rinote-app
+    volumes:
+      - type: volume
+        source: rinote-data
+        target: /data/db
+networks:
+  rinote-app:
+    driver: bridge
+volumes:
+  rinote-data:
+    driver: local
