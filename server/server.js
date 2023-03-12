@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({ origin: "http://localhost:3000" }));
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb://localhost:27017/rinoteDb");
+mongoose.connect("mongodb://mongodb:27017/rinoteDb");
 
 const notesSchema = new mongoose.Schema({
   topic: String,
@@ -40,6 +40,24 @@ app
     });
     col.save();
     res.sendStatus(200);
+  })
+  .delete((req, res) => {
+    console.log(req.query.name);
+    Collection.deleteOne({ name: req.query.name })
+      .then(() => {
+        Note.deleteMany({ topic: req.query.name })
+          .then(() => {
+            res.sendStatus(200);
+          })
+          .catch((err) => {
+            console.error(err);
+            res.sendStatus(500);
+          });
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
   });
 
 app

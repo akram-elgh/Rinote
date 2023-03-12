@@ -14,6 +14,10 @@ export default function App() {
       isClicked: true,
       name: name,
     });
+    // setClickCollection({
+    //   isClicked: false,
+    //   name: "",
+    // });
   }
   return (
     <div>

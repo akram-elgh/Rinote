@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddNote from "./AddNote.jsx";
 import Notes from "./Notes.jsx";
 // import AddIcon from "@mui/icons-material/Add";
@@ -14,7 +14,12 @@ export default function NotesContainer(props) {
     },
   ]);
   const url = "http://localhost:3001/api/notes/?topic=" + props.topic;
-  props.isClicked && axios.get(url).then((response) => setData(response.data));
+
+  useEffect(() => {
+    if (props.isClicked) {
+      axios.get(url).then((response) => setData(response.data));
+    }
+  }, [props.isClicked, url]);
   function handleClick(input) {
     console.log(input);
     axios.post(url, { ...input, topic: props.topic }).then(
@@ -49,12 +54,6 @@ export default function NotesContainer(props) {
             ></Notes>
           );
         })}
-
-      {/* <div className="note-addbtn">
-        <Fab color="primary" onClick={handleClick}>
-          <AddIcon />
-        </Fab>
-      </div> */}
       <AddNote onClick={handleClick}></AddNote>
     </div>
   );

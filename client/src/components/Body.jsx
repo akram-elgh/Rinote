@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function Body(props) {
   const [data, setData] = useState([]);
-  const url = "http://localhost:3001/api";
+  const url = "http://192.168.1.7:3001/api";
   useEffect(() => {
     axios.get(url).then((response) => setData(response.data));
   }, []);
@@ -22,6 +22,16 @@ export default function Body(props) {
         );
     }
   }
+  function deleteCollection(name) {
+    axios.delete(`http://localhost:3001/api?name=${name}`).then(
+      setTimeout(
+        axios
+          .get("http://localhost:3001/api")
+          .then((response) => setData(response.data)),
+        100
+      )
+    );
+  }
   return (
     <div className="main">
       <div>
@@ -35,6 +45,7 @@ export default function Body(props) {
               key={collection._id}
               name={collection.name}
               date={collection.date}
+              delete={deleteCollection}
             ></Collection>
           );
         })}

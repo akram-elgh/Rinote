@@ -50,7 +50,16 @@
 
 .collection p {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  /* font-size: large; */
+}
+
+.delete-note > button {
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 5px;
+  float: right;
+  background-color: #aa9fff;
+  cursor: pointer;
 }
 
 .collection input {
