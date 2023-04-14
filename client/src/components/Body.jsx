@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function Body(props) {
   const [data, setData] = useState([]);
-  const url = "http://192.168.1.7:3001/api";
+  const url = "http://localhost:3001/api";
   useEffect(() => {
     axios.get(url).then((response) => setData(response.data));
   }, []);

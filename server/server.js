@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({ origin: "http://localhost:3000" }));
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb://mongodb:27017/rinoteDb");
+mongoose.connect("mongodb://localhost:27017/rinoteDb");
 
 const notesSchema = new mongoose.Schema({
   topic: String,
